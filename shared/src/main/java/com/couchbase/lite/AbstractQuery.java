@@ -327,7 +327,7 @@ abstract class AbstractQuery implements Query {
         return null;
     }
 
-    private Map<String, Object> _asJSON() {
+    protected Map<String, Object> _asJSON() {
         Map<String, Object> json = new HashMap<String, Object>();
 
         // DISTINCT:
