@@ -35,7 +35,7 @@ import java.util.concurrent.Executor;
 
 import static com.couchbase.lite.PropertyExpression.kCBLAllPropertiesName;
 
-abstract class AbstractQuery implements Query {
+public abstract class AbstractQuery implements Query {
     //---------------------------------------------
     // static variables
     //---------------------------------------------
