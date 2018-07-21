@@ -220,7 +220,7 @@ public abstract class AbstractQuery implements Query {
     //---------------------------------------------
     // Package level access
     //---------------------------------------------
-    Database getDatabase() {
+    public Database getDatabase() {
         if (database == null)
             database = (Database) from.getSource();
         return database;
