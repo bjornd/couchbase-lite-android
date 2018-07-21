@@ -279,7 +279,7 @@ public abstract class AbstractQuery implements Query {
             if (c4query != null)
                 return;
 
-            database = (Database) from.getSource();
+            database = this.getDatabase();
             String json = encodeAsJSON();
             Log.v(TAG, "Query encoded as %s", json);
             if (json == null)
