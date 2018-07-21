@@ -79,7 +79,7 @@ public abstract class AbstractQuery implements Query {
     //---------------------------------------------
     // Constructor
     //---------------------------------------------
-    AbstractQuery() {
+    public AbstractQuery() {
     }
 
     //---------------------------------------------
@@ -296,7 +296,7 @@ public abstract class AbstractQuery implements Query {
         }
     }
 
-    private Map<String, Integer> generateColumnNames() throws CouchbaseLiteException {
+    protected Map<String, Integer> generateColumnNames() throws CouchbaseLiteException {
         Map<String, Integer> map = new HashMap<>();
         int index = 0;
         int provisionKeyIndex = 0;
