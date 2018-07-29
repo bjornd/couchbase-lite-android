@@ -35,7 +35,7 @@ import java.util.concurrent.Executor;
 
 import static com.couchbase.lite.PropertyExpression.kCBLAllPropertiesName;
 
-abstract class AbstractQuery implements Query {
+public abstract class AbstractQuery implements Query {
     //---------------------------------------------
     // static variables
     //---------------------------------------------
@@ -79,7 +79,7 @@ abstract class AbstractQuery implements Query {
     //---------------------------------------------
     // Constructor
     //---------------------------------------------
-    AbstractQuery() {
+    public AbstractQuery() {
     }
 
     //---------------------------------------------
@@ -215,7 +215,7 @@ abstract class AbstractQuery implements Query {
     //---------------------------------------------
     // Package level access
     //---------------------------------------------
-    Database getDatabase() {
+    public Database getDatabase() {
         if (database == null)
             database = (Database) from.getSource();
         return database;
@@ -278,7 +278,7 @@ abstract class AbstractQuery implements Query {
             if (c4query != null)
                 return;
 
-            database = (Database) from.getSource();
+            database = this.getDatabase();
             String json = encodeAsJSON();
             Log.v(TAG, "Query encoded as %s", json);
             if (json == null)
@@ -295,7 +295,7 @@ abstract class AbstractQuery implements Query {
         }
     }
 
-    private Map<String, Integer> generateColumnNames() throws CouchbaseLiteException {
+    protected Map<String, Integer> generateColumnNames() throws CouchbaseLiteException {
         Map<String, Integer> map = new HashMap<>();
         int index = 0;
         int provisionKeyIndex = 0;
@@ -327,7 +327,7 @@ abstract class AbstractQuery implements Query {
         return null;
     }
 
-    private Map<String, Object> _asJSON() {
+    protected Map<String, Object> _asJSON() {
         Map<String, Object> json = new HashMap<String, Object>();
 
         // DISTINCT:
